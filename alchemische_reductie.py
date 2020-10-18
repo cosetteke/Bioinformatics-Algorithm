@@ -2,17 +2,17 @@
 # input
 polymer = input()
 # build a new polymer
-new_polymer = polymer[0]
-for (index, char), char_new in zip(enumerate(polymer),new_polymer):
-    # set the range
-    if index+1 < len(polymer):
-        if new_polymer[-1].upper() == polymer[index+1].upper():
-            new_polymer1 = new_polymer[:-1]
-        else:
-            new_polymer1 += polymer[index+1]
-        if len(new_polymer1) < len(new_polymer):
-            if new_polymer1[-1].upper() == polymer[index + 1].upper():
-                new_polymer1 = new_polymer1[:-1]
+new_polymer = ''
 
-# output
-print(f'{new_polymer1}' + '('+ f'{len(new_polymer1)}' + ')' )
+for char in polymer:
+    # if new polymer is empty, just add the character
+    if len(new_polymer) == 0:
+        new_polymer += char
+    else:
+        # if alchemical reaction
+        if char != new_polymer[-1].swapcase():
+            new_polymer += char
+        else:
+            new_polymer = new_polymer[:-1]
+# give the output
+print(f'{new_polymer}({len(new_polymer)})')
