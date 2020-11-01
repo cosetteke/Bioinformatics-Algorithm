@@ -1,7 +1,6 @@
 # https://dodona.ugent.be/nl/courses/359/series/3486/activities/1357047316
 # input
-x = float(input())
-y = float(input())
+x, y = float(input()), float(input())
 
 # conditions
 if y > 6 and x < 4.65:
