@@ -25,3 +25,13 @@ else:
     else:
         coin_num = '1'
 print(f'coin #{coin_num} is counterfeit')
+
+# find group that contains the counterfeit coin based on the first weighing:
+# group 0 = 1-2-3; group 1 = 4-5-6; group 2 = 7-8-9
+#weighing = input()
+#group = 0 if weighing == ’right’ else (1 if weighing == ’left’ else 2)
+# determine which coin in the group is counterfeit
+#weighing = input()
+#coin = 1 if weighing == ’right’ else (2 if weighing == ’left’ else 3)
+# indicate which coin is counterfeit
+#print(f’coin #{3 * group + coin} is counterfeit’)
