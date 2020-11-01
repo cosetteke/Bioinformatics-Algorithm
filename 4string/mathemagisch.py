@@ -15,6 +15,7 @@ for index, i in enumerate(digit):
         print('+'+f'{new_line:>{position-1}s}')
     else:
         print(f'{new_line:>{position}s}')
+    # print(f’{"+" if index == length - 1 else " "}{term:{length}d}’)
 # output
 print(equal)
 print(f'{str(total):>{position}s}')
