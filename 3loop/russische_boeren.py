@@ -7,7 +7,6 @@ while n > 0:
     print(f'{m} {n}')
     if n % 2 == 1:
         sum += m
-    m = 2 * m
-    n = n // 2
+    m, n = 2 * m, n // 2
 # give output
 print(sum)

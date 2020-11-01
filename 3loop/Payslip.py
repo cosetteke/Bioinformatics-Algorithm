@@ -1,18 +1,16 @@
 # https://dodona.ugent.be/nl/courses/359/series/3487/activities/990750894
 # input the random number
 random = int(input())
-worker_num = 0
-worker_salary = 0
-whole = 0
+# initialize total salary with random number
+whole = random
+# process salaries of successive workers
+worker_salary, worker_num = input(), 0
 while worker_salary != 'stop':
-    worker_salary = input()
-    if worker_salary != 'stop':
-        worker_num += 1
-        sum = random + int(worker_salary)
-        whole += sum
-        print(f'worker #{worker_num} whispers €{whole - random * (worker_num-1)}')
-    else:
-        break
+    # add salary of worker to total
+    worker_num += 1
+    whole += int(worker_salary)
+    print(f'worker #{worker_num} whispers €{whole}')
 
-average = (whole - random * worker_num) / worker_num
-print(f'average salary: €{average:.2f}')
+    # read salary of next worker!!!
+    worker_salary = input()
+print(f'average salary: €{(whole - random)/worker_num:.2f}')
