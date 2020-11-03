@@ -14,5 +14,6 @@ for char in polymer:
             new_polymer += char
         else:
             new_polymer = new_polymer[:-1]
+    ## 这种形式下可以考虑省略一个合并条件
 # give the output
 print(f'{new_polymer}({len(new_polymer)})')
