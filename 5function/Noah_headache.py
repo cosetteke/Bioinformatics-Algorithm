@@ -10,6 +10,11 @@ def splitsing(soort):
     >>> splitsing('geit')
     ('g', 'eit')
     """
+    # find position of first vowel
+    # pos = 0
+    # while pos < len(soort) and soort[pos].lower() not in 'aeiou':
+    #         pos += 1
+    # return soort[:pos], soort[pos:]
     consonants = 'aeiouAEIOU'
     list = []
     for letter in soort:
@@ -42,6 +47,10 @@ def kruising(soort1, soort2):
     list.append(new1)
     list.append(new2)
     return tuple(list)
+# # split species names in prefix and suffix
+# prefix1, suffix1 = split(species1) prefix2, suffix2 = split(species2)
+# # hybridize the species names
+# return prefix1 + suffix2, prefix2 + suffix1
 if __name__ == '__main__':
     import doctest
     doctest.testmod()

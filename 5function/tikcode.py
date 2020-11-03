@@ -1,4 +1,5 @@
 # https://dodona.ugent.be/nl/courses/359/series/3489/activities/811362724
+alphabet = 'ABCDEFGHIJLMNOPQRSTUVWXYZ'
 def encode_letter(letter):
     """
     >>> encode_letter('V')
@@ -9,8 +10,7 @@ def encode_letter(letter):
     letter = letter.upper()
     if letter == 'K':
         letter = 'C'
-    alphabet = 'ABCDEFGHIJLMNOPQRSTUVWXYZ'
-    row = int(alphabet.find(letter)/5 + 1)
+    row = int(alphabet.find(letter)/5 + 1) # 或者 // 5
     column = alphabet.find(letter) % 5 + 1
     return (row, column)
 
@@ -21,7 +21,6 @@ def decode_letter(row, column):
     >>> decode_letter(2, 4)
     'I'
     """
-    alphabet = 'ABCDEFGHIJLMNOPQRSTUVWXYZ'
     index = (row-1) * 5 + column - 1
     letter = alphabet[index]
     return letter

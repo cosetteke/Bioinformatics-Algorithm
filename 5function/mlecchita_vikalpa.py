@@ -22,8 +22,7 @@ def encode_character(m, k1, k2):
     if not m.isalpha():
         return m
     if m.isupper():
-        k1 = k1.upper()
-        k2 = k2.upper()
+        k1, k2 = k1.upper(), k2.upper()
         if k1.find(m) == -1:
             return k1[k2.find(m)]
         return k2[k1.find(m)]

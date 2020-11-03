@@ -6,7 +6,7 @@ def reduce(keystring):
     >>> reduce('TRICHINOPHOBIA')
     'TRICHNOPBA'
     """
-    return ''.join(sorted(set(keystring), key=keystring.index))
+    return ''.join(sorted(set(keystring), key=keystring.index)) ## sort by index
 
 
 def encode(number, keystring):
@@ -22,12 +22,8 @@ def encode(number, keystring):
 
     letter = ''
     for i in str(number):
-        if i != 0:
-            next = keystring[int(i)-1]
-            letter += next
-        else:
-            next = keystring[-1]
-            letter += next
+        next = keystring[int(i)-1]
+        letter += next
     return letter
 
 def decode(encode_str, keystring):
@@ -42,7 +38,7 @@ def decode(encode_str, keystring):
     number = ''
     for char in encode_str:
         if keystring.find(char) < 9:
-            number += str(keystring.find(char) + 1)
+            number += str(keystring.index(char) + 1)
         else:
             number += '0'
     return int(number)
