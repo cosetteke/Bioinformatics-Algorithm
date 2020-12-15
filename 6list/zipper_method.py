@@ -49,9 +49,14 @@ def zipper(l1, l2):
     >>> zipper(('A', 'B', 'C'),  [1, 2])
     ['A', 1, 'B', 2, 'C']
     """
+    short = l1 if len(l1) < len(l2) else l2
+    long = l1 if len(l1) >= len(l2) else l2
     zipper = []
-    for i, j  in zip_longest(l1,l2):
 
+    for i in range(len(short)):
+        zipper.extend((l1[i],l2[i])) # 注意这里是l1 l2 而不是 long short
+    zipper.extend(long[len(short):])
+    return zipper
 if __name__ == '__main__':
     import doctest
 
