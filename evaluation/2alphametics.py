@@ -5,8 +5,9 @@ def alphabet(string):
     >>> alphabet('BRUTUS + STABS = CAESAR')
     'ABCERSTU'
     """
-    alphabet = set(i for i in string if i.isalpha()) # built a unsorted set
-    return ''.join(sorted(alphabet)) # convert to a sorted string
+    alphabet = set(i for i in string if i.isalpha())  # built a unsorted set
+    return ''.join(sorted(alphabet))  # convert to a sorted string
+
 
 def number(word_, alpha, solution):
     """
@@ -24,6 +25,7 @@ def number(word_, alpha, solution):
         number += solution[alpha.find(letter)]
     return int(number)
 
+
 def numbers(alphametic, alpha, solution):
     """
     >>> numbers('BEAR + RARE + ERE', 'ABEHMRY', '5790813')
@@ -35,6 +37,7 @@ def numbers(alphametic, alpha, solution):
     word_list = [word_ for word_ in alphametic.split() if word_.isalpha()]
     # find corresponding number solution for each word
     return tuple(number(word_, alpha, solution) for word_ in word_list)
+
 
 def word(num, alpha, solution):
     """
@@ -52,6 +55,7 @@ def word(num, alpha, solution):
         word_ += alpha[solution.find(letter)]
     return word_
 
+
 def outcome(left, alpha, solution):
     """
     >>> outcome('BEAR + RARE + ERE', 'ABEHMRY', '5790813')
@@ -64,6 +68,7 @@ def outcome(left, alpha, solution):
     # find the result based on left side
     return word(left_sum, alpha, solution)
 
+
 def issolution(string, problem):
     """
     >>> issolution('5790813', 'BEAR + RARE + ERE = RHYME')
@@ -72,15 +77,16 @@ def issolution(string, problem):
     False
     """
     alpha = alphabet(problem)
-    word_list = [word_ for word_ in problem.split() if word_.isalpha()]
-    leftside = ' + '.join(word_list[:-1])
-    rightside = word_list[-1]
+    word_list = problem.split(" = ")
+    leftside, rightside = word_list[0], word_list[1]
     try:
         result = outcome(leftside, alpha, string) == rightside
     except IndexError:
         return False
     return result
 
+
 if __name__ == '__main__':
     import doctest
+
     doctest.testmod()
